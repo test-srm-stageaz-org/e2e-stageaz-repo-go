@@ -3,17 +3,17 @@ module github.com/test/vulnerable-go-app
 go 1.19
 
 require (
+	// Authentication & JWT - CVE-2020-26160: JWT validation bypass
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 
-	// Authentication & JWT
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible // CVE-2020-26160: JWT validation bypass
-	// Web Frameworks & HTTP
-	github.com/gin-gonic/gin v1.7.0 // CVE-2020-28483: Path traversal
+	// Web Frameworks & HTTP - CVE-2020-28483: Path traversal, CVE-2023-29401, CVE-2023-26125
+	github.com/gin-gonic/gin v1.7.0
 
 	// Database Drivers
-	github.com/lib/pq v1.0.0 // PostgreSQL driver
+	github.com/lib/pq v1.0.0 // CVE-2021-3121 possible through indirect deps
 
-	// Data Serialization
-	gopkg.in/yaml.v2 v2.2.8 // CVE-2019-11254: Denial of Service
+	// Data Serialization - CVE-2019-11254: Denial of Service, CVE-2022-28948
+	gopkg.in/yaml.v2 v2.2.8
 )
 
 require (
@@ -37,4 +37,3 @@ require (
 	golang.org/x/sys v0.0.0-20200909081042-eff7692f9009 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )
-
